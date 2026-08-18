@@ -1,0 +1,98 @@
+This is the organization of the nba api modules (we are not using the live modules for now ):
+
+nba_api
+│
+├── stats
+│   │
+│   ├── endpoints
+│   │   │
+│   │   ├── leaguedashplayerstats.py  => in python, a module is just a .py file
+│   │   │   └── LeagueDashPlayerStats => this is a class in the module 
+│   │   │
+│   │   ├── playercareerstats.py
+│   │   │   └── PlayerCareerStats
+│   │   │
+│   │   ├── commonplayerinfo.py
+│   │   │   └── CommonPlayerInfo
+│   │   │
+│   │   └── playergamelog
+│   │
+│   └── static
+│       ├── players.py
+│       └── teams.py
+│
+└── live
+    └── nba
+        └── endpoints
+            ├── scoreboard.py
+            └── ...
+
+
+
+Dictionaries and Lists recap
+
+## Lists and Dictionaries
+
+* A list stores multiple items in order and uses square brackets `[]`.
+* List items are accessed using an **index**, starting at `0`.
+
+```python
+players = ["LeBron", "Curry", "Durant"]
+players[0]  # "LeBron"
+```
+
+* A dictionary stores data as key-value pairs and uses curly braces `{}`.
+* Dictionary values are accessed using their key.
+
+```python
+player = {
+    "full_name": "LeBron James",
+    "id": 2544,
+    "is_active": True
+}
+
+player["full_name"]  # "LeBron James"
+```
+
+### List of Dictionaries
+
+API data often contains a **list of dictionaries**:
+
+```python
+matches = [
+    {
+        "full_name": "LeBron James",
+        "id": 2544,
+        "is_active": True
+    }
+]
+```
+
+```python
+player = matches[0]
+```
+
+* `matches[0]` gets the **first item in the list**.
+* That item is a dictionary and is stored in `player`.
+
+```python
+player["full_name"]
+player["id"]
+player["is_active"]
+```
+
+You can also access the value directly:
+
+```python
+matches[0]["full_name"]
+```
+
+Read it left to right:
+
+`matches` → list
+`[0]` → first dictionary
+`["full_name"]` → value stored under that key
+
+**Main idea:**
+List → access by position/index
+Dictionary → access by key/name
